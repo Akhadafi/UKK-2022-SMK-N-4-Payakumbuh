@@ -45,7 +45,7 @@ function tambahTipeKamar($data)
 	global $conn;
 
 	$tipe_kamar = htmlspecialchars($data["tipe_kamar"]);
-	$harga_kamar = htmlspecialchars($data["harga_kamar"]);
+	$harga = htmlspecialchars($data["harga"]);
 
 	$result = mysqli_query($conn, "SELECT tipe_kamar FROM tipe_kamar WHERE tipe_kamar = '$tipe_kamar'");
 
@@ -59,8 +59,27 @@ function tambahTipeKamar($data)
 
 	$query = "INSERT INTO tipe_kamar
 				VALUES
-			  ('$tipe_kamar','$harga_kamar')
+			  ('$tipe_kamar','$harga')
 			";
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
+
+
+function editTipeKamar($data)
+{
+	global $conn;
+
+	$tipe_kamar = mysqli_real_escape_string($conn, $data["tipe_kamar"]);
+	$harga = mysqli_real_escape_string($conn, $data["harga"]);
+
+	$query = "UPDATE tipe_kamar SET
+                      tipe_kamar = '$tipe_kamar',
+                      harga = '$harga'
+                      WHERE tipe_kamar = '$tipe_kamar'
+                      ";
+	// var_dump($query); die;
 	mysqli_query($conn, $query);
 
 	return mysqli_affected_rows($conn);
@@ -87,6 +106,31 @@ function tambahFasilitasKamar($data)
 				VALUES
 			  ('$fasilitas_kamar')
 			";
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
+
+function edit_fasilitasKamar($data)
+{
+	global $conn;
+
+	$fasilitas_kamar = strtolower(stripslashes($data["fasilitas_kamar"]));
+
+	$result = mysqli_query($conn, "SELECT fasilitas_kamar FROM fasilitas_kamar WHERE fasilitas_kamar = '$fasilitas_kamar'");
+
+	if (mysqli_fetch_assoc($result)) {
+		echo "<script>
+				alert('Sudah terdaftar!')
+		      </script>";
+		return false;
+	}
+
+	$query = "UPDATE fasilitas_kamar SET
+                      fasilitas_kamar = '$fasilitas_kamar'
+                      WHERE fasilitas_kamar = '$fasilitas_kamar'
+                      ";
+	// var_dump($query); die;
 	mysqli_query($conn, $query);
 
 	return mysqli_affected_rows($conn);

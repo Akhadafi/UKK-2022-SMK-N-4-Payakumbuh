@@ -171,8 +171,8 @@ if ($_SESSION['role'] != "Admin") {
                       </div>
 
                       <div class="mb-2">
-                        <label for="harga_kamar" class="form-label">Harga Kamar</label>
-                        <input name="harga_kamar" type="text" class="text-light btn-outline-info form-control" style="background-color:transparent" id="harga_kamar" placeholder="Harga Kamar">
+                        <label for="harga" class="form-label">Harga Kamar</label>
+                        <input name="harga" type="text" class="text-light btn-outline-info form-control" style="background-color:transparent" id="harga" placeholder="Harga Kamar">
                       </div>
                     </div>
 
@@ -194,6 +194,7 @@ if ($_SESSION['role'] != "Admin") {
                 <tr>
                   <th>Tipe Kamar</th>
                   <th>Harga Kamar</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody class="text-light">
@@ -204,6 +205,12 @@ if ($_SESSION['role'] != "Admin") {
                   <tr>
                     <td><?= $row['tipe_kamar']; ?></td>
                     <td><?= $row['harga']; ?></td>
+                    <td>
+                      <center>
+                        <a href="edit_tipeKamar.php?tipe_kamar=<?= $row['tipe_kamar']; ?>" class="btn btn-sm btn-outline-warning text-light">Edit</a>
+                        <a href="hapus_tipeKamar.php?tipe_kamar=<?= $row['tipe_kamar']; ?>" class="btn btn-sm btn-outline-danger">Hapus</a>
+                      </center>
+                    </td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -286,7 +293,10 @@ if ($_SESSION['role'] != "Admin") {
                   <tr>
                     <td><?= $row['fasilitas_kamar']; ?></td>
                     <td>
-                      <a href="./hapus_fasilitas.php?fasilitas=<?= $row['fasilitas_kamar']; ?>" class="btn btn-outline-danger d-block">Hapus</a>
+                      <center>
+                        <a href="edit_fasilitasKamar.php?fasilitas=<?= $row['fasilitas_kamar']; ?>" class="btn btn-sm btn-outline-warning text-light">Edit</a>
+                        <a href="hapus_fasilitasKamar.php?fasilitas=<?= $row['fasilitas_kamar']; ?>" class="btn btn-sm btn-outline-danger">Hapus</a>
+                      </center>
                     </td>
                   </tr>
                 <?php endforeach; ?>

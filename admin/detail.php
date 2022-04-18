@@ -17,7 +17,7 @@ if ($_SESSION['role'] != "Admin") {
 }
 $user = $_GET['user'];
 
-// query data resepsionis berdasarkan nisn
+// query data resepsionis berdasarkan user
 $resepsionis = query("SELECT * FROM user WHERE username = '$user'")[0];
 ?>
 <!DOCTYPE html>
@@ -63,11 +63,11 @@ $resepsionis = query("SELECT * FROM user WHERE username = '$user'")[0];
   <div class="container-fluid" style="margin-top: 90px;">
     <div class="row">
       <div class="col">
-        <div class="card border-light container-fluid pb-1 text-light" style="width: 22rem; background-color:black;">
+        <div class="card border-light container-fluid pb-1 text-light" style="width: 26rem; background-color:black;">
           <h5 class="card-header bg-transparent text-center border-light text-light">Data <span class="text-warning"><?= $resepsionis['username']; ?></span></h5>
           <div class="row">
             <div class="col-4">
-              <img src="../img/user/pp/<?= $resepsionis['gambar']; ?>" style="width: 130px;" class="card mt-1 mb-1" alt="PP">
+              <img src="../img/user/pp/<?= $resepsionis['gambar']; ?>" style="width: 122px;" class="card mt-1 mb-1" alt="PP">
             </div>
             <div class="col-8 mt-1">
               <div class="border rounded px-2">
