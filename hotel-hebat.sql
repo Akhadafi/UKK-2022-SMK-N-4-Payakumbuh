@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Apr 2022 pada 06.02
+-- Waktu pembuatan: 23 Apr 2022 pada 14.26
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -28,18 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `fasilitas_kamar` (
-  `fasilitas_kamar` varchar(25) NOT NULL
+  `fasilitas_kamar` varchar(100) NOT NULL,
+  `gambar` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `fasilitas_kamar`
 --
 
-INSERT INTO `fasilitas_kamar` (`fasilitas_kamar`) VALUES
-('PC'),
-('TV'),
-('WC'),
-('Wifi');
+INSERT INTO `fasilitas_kamar` (`fasilitas_kamar`, `gambar`) VALUES
+('AC', NULL),
+('Coffee Marker', NULL),
+('Kamar mandi shower', NULL),
+('Kamar mandi shower dan Bath Tub', NULL),
+('LED TV 32 inch', NULL),
+('LED TV 40 inch', NULL),
+('Sofa', NULL);
 
 -- --------------------------------------------------------
 
@@ -58,8 +62,9 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`no_kamar`, `tipe_kamar`, `status_kamar`) VALUES
-('KMR 003', 'Superior', 'Tersedia'),
-('KMR 004', 'Superior', 'Dihuni');
+('KMR 001', 'Superior', 'Tersedia'),
+('KMR 002', 'Deluxe', 'Tersedia'),
+('KMR 005', 'Deluxe', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -120,7 +125,7 @@ INSERT INTO `status_pesanan` (`status_pesanan`) VALUES
 
 CREATE TABLE `tipe_fasilitas_kamar` (
   `tipe_kamar` varchar(50) NOT NULL,
-  `fasilitas_kamar` varchar(25) NOT NULL
+  `fasilitas_kamar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -128,8 +133,15 @@ CREATE TABLE `tipe_fasilitas_kamar` (
 --
 
 INSERT INTO `tipe_fasilitas_kamar` (`tipe_kamar`, `fasilitas_kamar`) VALUES
-('Dulex', 'WC'),
-('Superior', 'Wifi');
+('Deluxe', 'AC'),
+('Deluxe', 'Coffee Marker'),
+('Deluxe', 'Kamar mandi shower dan Bath Tub'),
+('Deluxe', 'LED TV 40 inch'),
+('Deluxe', 'Sofa'),
+('Superior', 'AC'),
+('Superior', 'Coffee Marker'),
+('Superior', 'Kamar mandi shower'),
+('Superior', 'LED TV 32 inch');
 
 -- --------------------------------------------------------
 
@@ -139,17 +151,18 @@ INSERT INTO `tipe_fasilitas_kamar` (`tipe_kamar`, `fasilitas_kamar`) VALUES
 
 CREATE TABLE `tipe_kamar` (
   `tipe_kamar` varchar(50) NOT NULL,
-  `harga` varchar(50) NOT NULL
+  `harga` varchar(50) NOT NULL,
+  `luas` varchar(50) NOT NULL,
+  `gambar` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tipe_kamar`
 --
 
-INSERT INTO `tipe_kamar` (`tipe_kamar`, `harga`) VALUES
-('Dulex', 'Rp. 100.000 / hari'),
-('Superior', 'Rp. 150.000 / hari'),
-('VIP', 'Rp. 300.000 / hari');
+INSERT INTO `tipe_kamar` (`tipe_kamar`, `harga`, `luas`, `gambar`) VALUES
+('Deluxe', 'Rp. 100.000 / hari', '32 m2', NULL),
+('Superior', 'Rp. 150.000 / hari', '45 m2', NULL);
 
 -- --------------------------------------------------------
 
@@ -172,11 +185,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `gambar`, `role`, `nama`, `no_hp`, `alamat`) VALUES
-('admin', '$2y$10$tC2dbfPxFaLoT3pPhli/x.WDNzbWbFdWb2CVysmKVqWYw5ay.0DEe', '62235f7cc3fef.jpg', 'Admin', 'A Khadafi', '08', 'aa'),
-('deni@gmail.com', '$2y$10$lE1Qctfmpgr6y1hqtoZYMuYIjlPkt4Jt8AZwmQNr0i5vTe/FKi99O', '6224a039d354b.jpg', 'Resepsionis', 'deni irawan', '08', 'batu bolang'),
-('ehey', '$2y$10$aWtyITIS5IlJ22J.q4ivHOm6jlCXZNJU/hj2g8cpwgZfSJvhs0eH6', '6224388dde1f5.jpg', 'Tamu', 'awokkowkok', '08', 'aaa'),
-('lailatulhusna@gmail.com', '$2y$10$45cvJbZUO07.pGp240R1xeY.QCGlf7Oo6QwtNTZa7hsudveoFTYwW', '62245a59af492.jpg', 'Resepsionis', 'Nana', '08', 'koto panjang'),
-('nana', '$2y$10$s5l4ihQypPmmcWgohvvKFu8WpkqRcnaW75V2.jNzr1TAY8DsI2D4y', '62235ceeefaca.jpg', 'Tamu', 'Nana', '08', 'bb');
+('admin', '$2y$10$HWFmRbo9r/vbGEZ3lav50eW6ZGcDkiGLy34qdkr7L5Y1rZEttTtPu', '6263ef68bf766.jpg', 'Admin', 'A Khadafi', '082200000000', 'padang sikabu');
 
 --
 -- Indexes for dumped tables

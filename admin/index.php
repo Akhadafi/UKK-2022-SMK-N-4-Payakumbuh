@@ -49,53 +49,57 @@ if ($_SESSION['role'] != "Admin") {
 
   <div class="container-fluid" style="margin-top: 90px;">
     <div class="row">
-      <div class="col-lg-6 mb-3">
+      <div class="col-lg-7 mb-3">
         <!-- tabel -->
         <div class="card border-light container-fluid pb-1 text-light" style="width:auto; background-color:black;">
           <div class="card-header bg-transparent text-center border-light text-light">KAMAR</div>
           <div class="mt-1">
-            <table id="kamar" class="table border-start border-end border-top text-nowrap table-sm" style="width:100%">
-              <thead class="bg-dark text-light">
-                <tr>
-                  <th>Nomor Kamar</th>
-                  <th>Tipe</th>
-                  <th>Harga</th>
-                  <th>Fasilitas</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody class="text-light">
-                <?php
-                $resepsionis = query("SELECT * FROM kamar
+            <div class="table-responsive">
+              <table id="kamar" class="table border-start border-end border-top text-nowrap table-sm" style="width:100%">
+                <thead class="bg-dark text-light">
+                  <tr>
+                    <th>No Kamar</th>
+                    <th>Tipe</th>
+                    <th>Harga</th>
+                    <th>Fasilitas</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody class="text-light">
+                  <?php
+                  $resepsionis = query("SELECT * FROM kamar
                                       INNER JOIN tipe_fasilitas_kamar
                                       ON kamar.tipe_kamar = tipe_fasilitas_kamar.tipe_kamar
                                       INNER JOIN tipe_kamar
                                       ON kamar.tipe_kamar = tipe_kamar.tipe_kamar GROUP BY no_kamar
                 ");
-                ?>
-                <?php foreach ($resepsionis as $row) : ?>
-                  <tr>
-                    <td><?= $row['no_kamar']; ?></td>
-                    <td><?= $row['tipe_kamar']; ?></td>
-                    <td><?= $row['harga']; ?></td>
-                    <td>
-                      <?php
-                      $fasilitass = query("SELECT * FROM tipe_fasilitas_kamar");
-                      ?>
-                      <?php foreach ($fasilitass as $fas) : ?>
-                        <?= $fas['fasilitas_kamar']; ?>,
-                      <?php endforeach; ?>
-                    </td>
-                    <td><?= $row['status_kamar']; ?></td>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
+                  ?>
+                  <?php foreach ($resepsionis as $row) : ?>
+                    <tr>
+                      <td><?= $row['no_kamar']; ?></td>
+                      <td><?= $row['tipe_kamar']; ?></td>
+                      <td><?= $row['harga']; ?></td>
+                      <td>
+                        <?php
+                        $no_kamar = $row['no_kamar'];
+                        $fasilitass = mysqli_query($conn, "SELECT * FROM tipe_fasilitas_kamar,kamar,fasilitas_kamar where kamar.tipe_kamar = tipe_fasilitas_kamar.tipe_kamar and tipe_fasilitas_kamar.fasilitas_kamar = fasilitas_kamar.fasilitas_kamar and kamar.no_kamar='$no_kamar'");
+
+                        while ($result = mysqli_fetch_array($fasilitass)) {
+                          echo $result['fasilitas_kamar'] . "<br>";
+                        }
+                        ?>
+                      </td>
+                      <td><?= $row['status_kamar']; ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <!-- tabel -->
       </div>
-      <div class="col-lg-6 mb-3">
+      <div class="col-lg-5 mb-3">
         <!-- tabel -->
         <div class="card border-light container-fluid pb-1 text-light" style="width:auto; background-color:black;">
           <div class="card-header bg-transparent text-center border-light text-light">TIPE FASILITAS KAMAR</div>

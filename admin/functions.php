@@ -136,6 +136,31 @@ function edit_fasilitasKamar($data)
 	return mysqli_affected_rows($conn);
 }
 
+function tambahTipeFasilitasKamar($data)
+{
+	global $conn;
+
+	$tipe_fasilitas_kamar = htmlspecialchars($data["tipe_fasilitas_kamar"]);
+
+	$result = mysqli_query($conn, "SELECT tipe_fasilitas_kamar FROM tipe_fasilitas_kamar WHERE fasilitas_kamar = '$tipe_fasilitas_kamar'");
+
+	if (mysqli_fetch_assoc($result)) {
+		echo "<script>
+				alert('Sudah terdaftar!')
+		      </script>";
+		return false;
+	}
+
+
+	$query = "INSERT INTO tipe_fasilitas_kamar
+				VALUES
+			  ('$tipe_fasilitas_kamar')
+			";
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
+
 
 function upload()
 {

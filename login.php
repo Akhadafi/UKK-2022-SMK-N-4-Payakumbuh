@@ -156,7 +156,7 @@ if (isset($_POST["login"])) {
 
                   <!-- Modal Header -->
                   <div class="modal-header text-light">
-                    <h4 class="modal-title">Tambah Resepsionis</h4>
+                    <h4 class="modal-title">Registrasi Akun Hotel Hebat :</h4>
                     <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Kembali</button>
                   </div>
 

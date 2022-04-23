@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="d-flex" href="#">
       <img src="../img/user/pp/<?= $_SESSION['gambar']; ?>" alt="Avatar Logo" style="width: 50px;" class="rounded-pill border border-2 border-warning">
-      <div class="navbar-brand mx-1 text-warning"><?= $_SESSION['username']; ?></div>
+      <div class="navbar-brand mx-1 text-warning"><?= $_SESSION['nama']; ?> | role : <?= $_SESSION['role']; ?></div>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
