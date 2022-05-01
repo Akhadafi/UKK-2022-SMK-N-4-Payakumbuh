@@ -13,10 +13,19 @@
     <div class="mx-auto container">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="./">Dashboard</a>
+          <a class="nav-link" href="#" id="tombol_resepsionis">Resepsionis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./resepsionis.php">Resepsionis</a>
+          <a class="nav-link" href="#" id="tombol_kamar">Kamar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="tombol_tipe_fasiliats_kamar">TipeFasilitasKamar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="tombol_tipe_kamar">TipeKamar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="tombol_fasilitas_kamar">FasilitasKamar</a>
         </li>
         <li class="nav-item">
           <a href="../logout.php" class="btn btn-outline-danger" onclick="return confirm('yakin keluar?');">Logout</a>
