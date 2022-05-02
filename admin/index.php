@@ -19,17 +19,6 @@
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">ADMIN</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <h5><a class="nav-link" href="">Home</a></h5>
-          </li>
-        </ul>
-
-      </div>
     </div>
   </nav>
 
@@ -55,7 +44,7 @@
   </div>
 
   <!-- SCRIPT FOOTER -->
-  <div class="mt-5 p-2 bg-secondary text-white text-center">
+  <div class="mt-5 fixed-bottom p-2 bg-secondary text-white text-center">
     <p>@Desain by Software Engineering SMKN 1 Kuwus</p>
   </div>
 
