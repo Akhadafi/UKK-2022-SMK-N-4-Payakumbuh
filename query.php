@@ -61,23 +61,90 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
 
   ?>
   <div class="mb-2">
-    <label for="tipe_kamar" class="form-label">Tipe Kamar</label>
-    <select class="form-select" aria-label="Default select example">
+    <label for="field1" class="form-label">Tipe Kamar</label>
+    <select name="field1" class="form-select" id="field1">
       <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <?php
+      $field = mysqli_query($conn, "SELECT * FROM field1");
+      ?>
+      <?php while ($row = mysqli_fetch_assoc($field)) : ?>
+        <option value="<?= $row['field1']; ?>"><?= $row['field']; ?></option>
+      <?php endwhile; ?>
     </select>
   </div>
 
   <div class="mb-2">
-    <label for="nama_kamar" class="form-label">Nama Kamar</label>
-    <input name="nama_kamar" type="text" class="form-control" style="background-color:transparent" id="nama_kamar" placeholder="Nama Kamar">
+    <label for="field2" class="form-label">Field 2</label>
+    <input name="field2" type="text" class="form-control" id="field2" placeholder="Field 2">
+  </div>
+
+  <button class="btn btn-success" type="submit" name="tambah">Tambah</button>
+</form>
+<!-- Tambah -->
+
+<!-- Edit -->
+<form action="" method="post">
+  <?php
+  function ubah($data)
+  {
+    global $conn;
+
+    $id = htmlspecialchars($data["id"]);
+    $field1 = htmlspecialchars($data["field1"]);
+    $field2 = htmlspecialchars($data["field2"]);
+
+    $result = mysqli_query($conn, "SELECT field1 FROM nama_tabel WHERE field1 = '$field1'");
+
+    if (mysqli_fetch_assoc($result)) {
+      echo "<script>
+            alert('Sudah terdaftar!')
+            </script>";
+      return false;
+    }
+
+
+    $query = "INSERT INTO nama_tabel
+          VALUES
+          ('','$field1','$field2')
+        ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+  }
+
+  if (isset($_POST["ubah"])) {
+
+    if (ubah($_POST) > 0) {
+      echo "<script>
+                  alert('Data berhasil diubahkan!');
+                  document.location.href = '';
+                  </script>";
+    } else {
+      echo mysqli_error($conn);
+    }
+  }
+
+  ?>
+  <div class="mb-2">
+    <label for="field1" class="form-label">Tipe Kamar</label>
+    <select name="field1" class="form-select" id="field1">
+      <option selected>Open this select menu</option>
+      <?php
+      $field = mysqli_query($conn, "SELECT * FROM field1");
+      ?>
+      <?php while ($row = mysqli_fetch_assoc($field)) : ?>
+        <option value="<?= $row['field1']; ?>">
+          <?php if ($row['field1'] == $field['field']) ?>
+        </option>
+      <?php endwhile; ?>
+    </select>
   </div>
 
   <div class="mb-2">
-    <label for="jumlah_kamar" class="form-label">Jumlah Kamar</label>
-    <input name="jumlah_kamar" type="number" class="form-control" style="background-color:transparent" id="jumlah_kamar" placeholder="Jumlah Kamar">
+    <label for="field2" class="form-label">Field 2</label>
+    <input name="field2" value="field2" type="text" class="form-control" id="field2" placeholder="Field 2">
   </div>
+
+  <button class="btn btn-warning" type="submit" name="ubah">Tambah</button>
 </form>
-<!-- Tambah -->
+<!-- Edit -->
