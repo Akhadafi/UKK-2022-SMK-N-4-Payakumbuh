@@ -82,6 +82,7 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
 </form>
 <!-- Tambah -->
 
+
 <!-- Edit -->
 <form action="" method="post">
   <?php
@@ -89,24 +90,17 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
   {
     global $conn;
 
-    $id = htmlspecialchars($data["id"]);
+    $id = $data["id"];
     $field1 = htmlspecialchars($data["field1"]);
     $field2 = htmlspecialchars($data["field2"]);
 
-    $result = mysqli_query($conn, "SELECT field1 FROM nama_tabel WHERE field1 = '$field1'");
-
-    if (mysqli_fetch_assoc($result)) {
-      echo "<script>
-            alert('Sudah terdaftar!')
-            </script>";
-      return false;
-    }
-
-
-    $query = "INSERT INTO nama_tabel
-          VALUES
-          ('','$field1','$field2')
-        ";
+    $query = "UPDATE nama_tabel SET
+				id = '$id',
+				field1 = '$field1',
+				field2 = '$field2'
+			  WHERE id = $id
+			";
+    // var_dump($query); die;
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -116,15 +110,15 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
 
     if (ubah($_POST) > 0) {
       echo "<script>
-                  alert('Data berhasil diubahkan!');
+                  alert('Data berhasil diubah!');
                   document.location.href = '';
                   </script>";
     } else {
       echo mysqli_error($conn);
     }
   }
-
   ?>
+
   <div class="mb-2">
     <label for="field1" class="form-label">Tipe Kamar</label>
     <select name="field1" class="form-select" id="field1">
@@ -148,3 +142,33 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
   <button class="btn btn-warning" type="submit" name="ubah">Tambah</button>
 </form>
 <!-- Edit -->
+
+
+<!-- Hapus -->
+<?php
+function hapus($id)
+{
+  global $conn;
+  mysqli_query($conn, "DELETE FROM nama_tabel WHERE id = $id");
+  return mysqli_affected_rows($conn);
+}
+
+$id = $_GET["id"];
+
+if (hapus($id) > 0) {
+  echo "
+		<script>
+			alert('data berhasil dihapus!');
+			document.location.href = 'index.php';
+		</script>
+	";
+} else {
+  echo "
+		<script>
+			alert('data gagal dihapus!');
+			document.location.href = 'index.php';
+		</script>
+	";
+}
+?>
+<!-- Hapus -->
