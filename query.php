@@ -1,35 +1,55 @@
+<!-- koneksi data base -->
+<?php
+$conn = mysqli_connect("localhost", "root", "", "nama_database");
+?>
+<!-- koneksi data base -->
+
+
+<!-- Tampil -->
+<?php
+$result = mysqli_query($conn, "SELECT * FROM nama_tabel");
+?>
+<?php while ($baris = mysqli_fetch_assoc($result)) : ?>
+  <tr>
+    <td><?= $baris['field']; ?></td>
+  </tr>
+<?php endwhile; ?>
+<!-- Tampil -->
+
+
+<!-- Tambah -->
 <form action="" method="post">
   <?php
-  function tambahFasilitasKamar($data)
+  function tambah($data)
   {
     global $conn;
 
-    $id_fasilitas_kamar = htmlspecialchars($data["id_fasilitas_kamar"]);
-    $nama_kamar = htmlspecialchars($data["nama_kamar"]);
-    $jumlah_kamar = htmlspecialchars($data["jumlah_kamar"]);
+    $id = htmlspecialchars($data["id"]);
+    $field1 = htmlspecialchars($data["field1"]);
+    $field2 = htmlspecialchars($data["field2"]);
 
-    $result = mysqli_query($conn, "SELECT nama_kamar FROM nama_kamar WHERE nama_kamar = '$nama_kamar'");
+    $result = mysqli_query($conn, "SELECT field1 FROM nama_tabel WHERE field1 = '$field1'");
 
     if (mysqli_fetch_assoc($result)) {
       echo "<script>
-          alert('Sudah terdaftar!')
+            alert('Sudah terdaftar!')
             </script>";
       return false;
     }
 
 
-    $query = "INSERT INTO kamar
+    $query = "INSERT INTO nama_tabel
           VALUES
-          ('$id_fasilitas_kamar','$jumlah_kamar','$jumlah_kamar')
+          ('','$field1','$field2')
         ";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
   }
 
-  if (isset($_POST["ta_kamar"])) {
+  if (isset($_POST["tambah"])) {
 
-    if (tambahFasilitasKamar($_POST) > 0) {
+    if (tambah($_POST) > 0) {
       echo "<script>
                   alert('Data berhasil ditambahkan!');
                   document.location.href = '';
@@ -60,3 +80,4 @@
     <input name="jumlah_kamar" type="number" class="form-control" style="background-color:transparent" id="jumlah_kamar" placeholder="Jumlah Kamar">
   </div>
 </form>
+<!-- Tambah -->

@@ -1,5 +1,5 @@
 <!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary mt-2 mb-1" data-bs-toggle="modal" data-bs-target="#myModal">
+<button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#myModal">
   Tambah
 </button>
 
@@ -31,8 +31,7 @@
   </div>
 </div>
 
-
-<div class="table-responsive mt-1">
+<div class="table-responsive p-1">
   <table id="kamar" class="table table-striped" style="width:100%">
     <thead class="bg-dark text-light">
       <tr>
