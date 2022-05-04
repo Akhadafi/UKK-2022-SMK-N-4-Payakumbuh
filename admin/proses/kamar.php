@@ -31,6 +31,7 @@
       <tr>
         <th>Nama Kamar</th>
         <th>Jumlah Kamar</th>
+        <th>Detail</th>
       </tr>
     </thead>
 
@@ -43,6 +44,9 @@
         <tr>
           <td><?= $rowKamar['nama_kamar']; ?></td>
           <td><?= $rowKamar['total_kamar']; ?></td>
+          <td>
+            <a href="./proses/dt_kamar.php?id_kamar=<?= $rowKamar['id_kamar']; ?>" class="btn btn-info text-light">detail</a>
+          </td>
         </tr>
       <?php endwhile; ?>
     </tbody>

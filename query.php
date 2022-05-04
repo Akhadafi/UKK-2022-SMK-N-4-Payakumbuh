@@ -157,7 +157,7 @@ $field = mysqli_query($conn, "SELECT * FROM nama_tabel WHERE id = $id");
   {
     global $conn;
 
-    $id = $data["id"];
+    $id = $_GET["id"];
     $field1 = htmlspecialchars($data["field1"]);
     $field2 = htmlspecialchars($data["field2"]);
     $gambarLama = htmlspecialchars($data["gambarLama"]);
