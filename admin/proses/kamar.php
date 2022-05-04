@@ -1,10 +1,10 @@
 <!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#myModal">
+<button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#modalTambahKamar">
   Tambah
 </button>
 
 <!-- The Modal -->
-<div class="modal fade" id="myModal">
+<div class="modal fade" id="modalTambahKamar">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -14,17 +14,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
-
       <!-- Modal body -->
       <div class="modal-body">
         <?php
-        include 'tb_fa_kamar.php'
+        include 'tb_kamar.php'
         ?>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="submit" name="ta_kamar" class="btn btn-danger">Tambah</button>
       </div>
 
     </div>
@@ -42,13 +36,13 @@
 
     <tbody>
       <?php
-      $result = mysqli_query($conn, "SELECT * FROM kamar");
+      $resultKamar = mysqli_query($conn, "SELECT * FROM kamar");
 
       ?>
-      <?php while ($kamar = mysqli_fetch_assoc($result)) : ?>
+      <?php while ($rowKamar = mysqli_fetch_assoc($resultKamar)) : ?>
         <tr>
-          <td><?= $kamar['nama_kamar']; ?></td>
-          <td><?= $kamar['total_kamar']; ?></td>
+          <td><?= $rowKamar['nama_kamar']; ?></td>
+          <td><?= $rowKamar['total_kamar']; ?></td>
         </tr>
       <?php endwhile; ?>
     </tbody>

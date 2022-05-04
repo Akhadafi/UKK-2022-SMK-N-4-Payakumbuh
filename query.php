@@ -95,7 +95,7 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
 
     $query = "INSERT INTO nama_tabel
           VALUES
-          ('','$field1','$field2','$gambar)
+          ('','$field1','$field2','$gambar')
         ";
     mysqli_query($conn, $query);
 
