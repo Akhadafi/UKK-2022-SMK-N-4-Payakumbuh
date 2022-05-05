@@ -225,6 +225,9 @@ $field = mysqli_query($conn, "SELECT * FROM nama_tabel WHERE id = $id");
 
 <!-- Hapus -->
 <?php
+// koneksi ke database
+$conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
+
 $id = $_GET["id"];
 
 function hapus($id)
@@ -233,7 +236,6 @@ function hapus($id)
   mysqli_query($conn, "DELETE FROM nama_tabel WHERE id = $id");
   return mysqli_affected_rows($conn);
 }
-
 
 if (hapus($id) > 0) {
   echo "

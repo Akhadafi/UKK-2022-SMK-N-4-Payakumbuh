@@ -26,7 +26,7 @@
 
     if (editKamar($_POST) > 0) {
       echo "<script>
-                  alert('Data berhasil ditambahkan!');
+                  alert('Data berhasil diubah!');
                   document.location.href = '';
                   </script>";
     } else {
@@ -47,7 +47,7 @@
 
   <!-- Modal footer -->
   <div class="modal-footer">
-    <button class="btn btn-success" type="submit" name="edit_kamar">Edit</button>
+    <button class="btn btn-warning" type="submit" name="edit_kamar">Edit</button>
   </div>
 
 </form>

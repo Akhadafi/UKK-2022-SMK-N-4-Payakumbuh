@@ -103,7 +103,7 @@ $DetailKamar = mysqli_query($conn, "SELECT * FROM kamar WHERE id_kamar = $id_kam
                     <!-- Modal footer -->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
-                      <a href="./hp_kamar.php" class="btn btn-danger">Hapus</a>
+                      <a href="./hp_kamar.php?id_kamar=<?= $ResultDetailKamar['id_kamar']; ?>" class="btn btn-danger">Hapus</a>
                     </div>
 
                   </div>
