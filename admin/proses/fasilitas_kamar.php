@@ -32,6 +32,7 @@
         <th>Kamar</th>
         <th>Fasilitas Kamar</th>
         <th>Gambar</th>
+        <th>Detail</th>
       </tr>
     </thead>
 
@@ -46,6 +47,9 @@
           <td><?= $rowFasilitasKamar['fasilitas']; ?></td>
           <td>
             <img src="../vendor/img/fasilitas_kamar/<?= $rowFasilitasKamar['gambar']; ?>" alt="gambar" style="width: 120px; height: 70px;">
+          </td>
+          <td>
+            <a href="./proses/dt_fasilitas_kamar.php?id_fasilitas_kamar=<?= $rowFasilitasKamar['id']; ?>" class="btn btn-info text-light">detail</a>
           </td>
         </tr>
       <?php endwhile; ?>

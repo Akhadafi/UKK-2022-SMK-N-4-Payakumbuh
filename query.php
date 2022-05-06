@@ -196,13 +196,18 @@ $field = mysqli_query($conn, "SELECT * FROM nama_tabel WHERE id = $id");
   ?>
 
   <div class="mb-2">
-    <label for="field1" class="form-label">Tipe Kamar</label>
-    <select name="field1" class="form-select" id="field1">
-      <option selected>Open this select menu</option>
-      <?php while ($row = mysqli_fetch_assoc($field)) : ?>
-        <option value="<?= $row['field1']; ?>">
-          <?php if ($row['field1'] == $field['field']) ?>
-        </option>
+    <label for="id_field" class="form-label">Nama Kamar</label>
+    <select name="id_field" class="form-select" id="id_field">
+      <?php
+      $field = mysqli_query($conn, "SELECT * FROM nama_tabel");
+      ?>
+      <?php while ($rowfield = mysqli_fetch_assoc($field)) : ?>
+        <?php if ($resultField == $rowfield['id_field']) { ?>
+          <option selected value="<?= $rowfield['id_field']; ?>"><?= $rowfield['nama_field']; ?></option>
+        <?php
+        } else { ?>
+          <option value="<?= $rowfield['id_field']; ?>"><?= $rowfield['nama_field']; ?></option>
+        <?php } ?>
       <?php endwhile; ?>
     </select>
   </div>
