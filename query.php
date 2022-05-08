@@ -283,7 +283,6 @@ if (isset($_SESSION["login"])) {
   exit;
 }
 
-
 if (isset($_POST["login"])) {
 
   $username = $_POST["username"];

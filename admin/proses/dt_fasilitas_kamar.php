@@ -84,12 +84,12 @@ $DetailFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar WHERE
               </div>
 
               <!-- Button to Open the Modal -->
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusKamar">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusFasilitasKamar">
                 Hapus
               </button>
 
               <!-- The Modal -->
-              <div class="modal fade" id="modalHapusKamar">
+              <div class="modal fade" id="modalHapusFasilitasKamar">
                 <div class="modal-dialog">
                   <div class="modal-content">
 
@@ -101,13 +101,13 @@ $DetailFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar WHERE
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                      <p>yakin hapus "<?= $ResultDetailFasilitasKamar['nama_kamar']; ?>"</p>
+                      <p>yakin hapus "<?= $ResultDetailFasilitasKamar['fasilitas']; ?>"</p>
                     </div>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
-                      <a href="./hp_kamar.php?id_kamar=<?= $ResultDetailFasilitasKamar['id_kamar']; ?>" class="btn btn-danger">Hapus</a>
+                      <a href="./hp_fasilitas_kamar.php?id_fasilitas_kamar=<?= $ResultDetailFasilitasKamar['id']; ?>" class="btn btn-danger">Hapus</a>
                     </div>
 
                   </div>

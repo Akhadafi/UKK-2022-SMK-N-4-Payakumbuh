@@ -6,7 +6,7 @@
   {
     global $conn;
 
-    $id = $_GET["id"];
+    $id = $_GET["id_fasilitas_kamar"];
     $id_kamar = htmlspecialchars($data["id_kamar"]);
     $fasilitas = htmlspecialchars($data["fasilitas"]);
     $gambarLamaFasilitasKamar = htmlspecialchars($data["gambarLamaFasilitasKamar"]);
@@ -35,9 +35,9 @@
 
     if (editFasilitasKamar($_POST) > 0) {
       echo "<script>
-                  alert('Data berhasil diubah!');
-                  document.location.href = '';
-                  </script>";
+              alert('Data berhasil diubah!');
+              document.location.href = '';
+            </script>";
     } else {
       echo mysqli_error($conn);
     }
@@ -54,8 +54,7 @@
       <?php while ($rowKamar = mysqli_fetch_assoc($kamar)) : ?>
         <?php if ($ResultDetailFasilitasKamar == $rowKamar['id_kamar']) { ?>
           <option selected value="<?= $rowKamar['id_kamar']; ?>"><?= $rowKamar['nama_kamar']; ?></option>
-        <?php
-        } else { ?>
+        <?php } else { ?>
           <option value="<?= $rowKamar['id_kamar']; ?>"><?= $rowKamar['nama_kamar']; ?></option>
         <?php } ?>
       <?php endwhile; ?>
