@@ -3,7 +3,7 @@ include '../../koneksi.php';
 // ambil data di URL
 $id_fasilitas_kamar = $_GET["id_fasilitas_kamar"];
 // query data berdasarkan id
-$DetailFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar WHERE id = $id_fasilitas_kamar");
+$DetailFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar,kamar WHERE fasilitas_kamar.id_kamar = kamar.id_kamar AND id = $id_fasilitas_kamar");
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ $DetailFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar WHERE
         <tr>
           <td>
             <h4>Nama kamar: </h3>
-              <h5><?= $ResultDetailFasilitasKamar['id_kamar']; ?></h5>
+              <h5><?= $ResultDetailFasilitasKamar['nama_kamar']; ?></h5>
           </td>
           <td>
             <h4>Fasilitas: </h3>

@@ -69,7 +69,8 @@
   <div class="mb-2">
     <label for="gambar" class="form-label">Gambar</label>
     <img src="../../vendor/img/fasilitas_kamar/<?= $ResultDetailFasilitasKamar['gambar']; ?>" style="width: 120px; height: 70px; margin-bottom: 10px;">
-    <input name="gambarLamaFasilitasKamar" value="<?= $ResultDetailFasilitasKamar['gambar']; ?>" class="form-control" type="file" id="gambar">
+    <input type="hidden" name="gambarLamaFasilitasKamar" value="<?= $ResultDetailFasilitasKamar['gambar']; ?>">
+    <input name="gambar" class="form-control" type="file" id="gambar">
   </div>
 
   <!-- Modal footer -->
