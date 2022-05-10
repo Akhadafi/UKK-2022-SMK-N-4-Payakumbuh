@@ -51,6 +51,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
               <td><?= $rowKamar['nama_kamar']; ?></td>
               <td><?= $rowKamar['total_kamar']; ?></td>
               <td>
+                <a href="detail_kamar.php?id_kamar=<?= $rowKamar['id_kamar']; ?>" class="btn btn-outline-dark">Detail</a>
                 <a href="edit_kamar.php?id_kamar=<?= $rowKamar['id_kamar']; ?>" class="btn btn-outline-dark">Edit</a>
                 <a href="hapus_kamar.php?id_kamar=<?= $rowKamar['id_kamar']; ?>" class="btn btn-outline-dark">Hapus</a>
               </td>

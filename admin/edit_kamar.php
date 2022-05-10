@@ -23,7 +23,7 @@ $ResultDetailKamar = mysqli_fetch_assoc($DetailKamar);
   <script src="../vendor/jquery-3.5.1.js"></script>
   <script src="../vendor/jquery.dataTables.min.js"></script>
   <script src="../vendor//dataTables.bootstrap5.min.js"></script>
-  <title>Kamar</title>
+  <title>Edit Kamar</title>
 </head>
 
 <body style="margin-top: 80px;">
