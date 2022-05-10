@@ -69,52 +69,52 @@ $result = mysqli_query($conn, "SELECT * FROM nama_tabel");
 
 
 <!-- Tambah -->
-<form action="" method="post" enctype="multipart/form-data">
-  <?php
-  function tambah($data)
-  {
-    global $conn;
+<?php
+function tambah($data)
+{
+  global $conn;
 
-    $field1 = htmlspecialchars($data["field1"]);
-    $field2 = htmlspecialchars($data["field2"]);
-    // upload gambar
-    $gambar = uploadGambar();
-    if (!$gambar) {
-      return false;
-    }
+  $field1 = htmlspecialchars($data["field1"]);
+  $field2 = htmlspecialchars($data["field2"]);
+  // upload gambar
+  $gambar = uploadGambar();
+  if (!$gambar) {
+    return false;
+  }
 
-    $result = mysqli_query($conn, "SELECT field1 FROM nama_tabel WHERE field1 = '$field1'");
+  $result = mysqli_query($conn, "SELECT field1 FROM nama_tabel WHERE field1 = '$field1'");
 
-    if (mysqli_fetch_assoc($result)) {
-      echo "<script>
+  if (mysqli_fetch_assoc($result)) {
+    echo "<script>
             alert('Sudah terdaftar!')
             </script>";
-      return false;
-    }
+    return false;
+  }
 
 
-    $query = "INSERT INTO nama_tabel
+  $query = "INSERT INTO nama_tabel
           VALUES
           ('','$field1','$field2','$gambar')
         ";
-    mysqli_query($conn, $query);
+  mysqli_query($conn, $query);
 
-    return mysqli_affected_rows($conn);
+  return mysqli_affected_rows($conn);
+}
+
+if (isset($_POST["tambah"])) {
+
+  if (tambah($_POST) > 0) {
+    echo "<script>
+            alert('Data berhasil ditambahkan!');
+            document.location.href = '';
+          </script>";
+  } else {
+    echo mysqli_error($conn);
   }
+}
+?>
 
-  if (isset($_POST["tambah"])) {
-
-    if (tambah($_POST) > 0) {
-      echo "<script>
-                  alert('Data berhasil ditambahkan!');
-                  document.location.href = '';
-                  </script>";
-    } else {
-      echo mysqli_error($conn);
-    }
-  }
-  ?>
-
+<form action="" method="post" enctype="multipart/form-data">
   <div class="mb-2">
     <label for="field1" class="form-label">Tipe Kamar</label>
     <select name="field1" class="form-select" id="field1">
@@ -151,49 +151,50 @@ $id = $_GET["id"];
 $field = mysqli_query($conn, "SELECT * FROM nama_tabel WHERE id = $id");
 ?>
 
-<form action="" method="post" enctype="multipart/form-data">
-  <?php
-  function ubah($data)
-  {
-    global $conn;
+<?php
+function ubah($data)
+{
+  global $conn;
 
-    $id = $_GET["id"];
-    $field1 = htmlspecialchars($data["field1"]);
-    $field2 = htmlspecialchars($data["field2"]);
-    $gambarLama = htmlspecialchars($data["gambarLama"]);
+  $id = $_GET["id"];
+  $field1 = htmlspecialchars($data["field1"]);
+  $field2 = htmlspecialchars($data["field2"]);
+  $gambarLama = htmlspecialchars($data["gambarLama"]);
 
-    // cek apakah user pilih gambar baru atau tidak
-    if ($_FILES['gambar']['error'] === 4) {
-      $gambar = $gambarLama;
-    } else {
-      $gambar = uploadGambar();
-    }
+  // cek apakah user pilih gambar baru atau tidak
+  if ($_FILES['gambar']['error'] === 4) {
+    $gambar = $gambarLama;
+  } else {
+    $gambar = uploadGambar();
+  }
 
-    $query = "UPDATE nama_tabel SET
+  $query = "UPDATE nama_tabel SET
 				id = '$id',
 				field1 = '$field1',
 				field2 = '$field2',
         gambar = '$gambar'
 			  WHERE id = $id
 			";
-    // var_dump($query); die;
-    mysqli_query($conn, $query);
+  // var_dump($query); die;
+  mysqli_query($conn, $query);
 
-    return mysqli_affected_rows($conn);
+  return mysqli_affected_rows($conn);
+}
+
+if (isset($_POST["ubah"])) {
+
+  if (ubah($_POST) > 0) {
+    echo "<script>
+            alert('Data berhasil diubah!');
+            document.location.href = '';
+          </script>";
+  } else {
+    echo mysqli_error($conn);
   }
+}
+?>
 
-  if (isset($_POST["ubah"])) {
-
-    if (ubah($_POST) > 0) {
-      echo "<script>
-                  alert('Data berhasil diubah!');
-                  document.location.href = '';
-                  </script>";
-    } else {
-      echo mysqli_error($conn);
-    }
-  }
-  ?>
+<form action="" method="post" enctype="multipart/form-data">
 
   <div class="mb-2">
     <label for="id_field" class="form-label">Nama Kamar</label>
@@ -224,6 +225,7 @@ $field = mysqli_query($conn, "SELECT * FROM nama_tabel WHERE id = $id");
   </div>
 
   <button class="btn btn-warning" type="submit" name="ubah">Tambah</button>
+
 </form>
 <!-- Edit -->
 
