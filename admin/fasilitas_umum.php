@@ -34,7 +34,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
       <a href="tambah_fasilitas_umum.php" class="btn btn-primary mb-2 d-block">Tambah
         Fasilitas Umum</a>
 
-      <table id="fasilitas-umum" class="table table-striped" style="width:100%">
+      <table id="fasilitas_umum" class="table table-striped" style="width:100%">
         <thead class="bg-dark text-light">
           <tr>
             <th>Nama Fasilitas</th>
@@ -71,7 +71,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
   <!-- Data Tabel -->
   <script>
     $(document).ready(function() {
-      $('#fasilitas-umum').DataTable();
+      $('#fasilitas_umum').DataTable();
     });
   </script>
 

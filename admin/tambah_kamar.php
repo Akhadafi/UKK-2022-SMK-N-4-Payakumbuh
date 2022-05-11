@@ -86,12 +86,6 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>
-  <!-- Data Tabel -->
-  <script>
-    $(document).ready(function() {
-      $('#kamar').DataTable();
-    });
-  </script>
 
 </body>
 

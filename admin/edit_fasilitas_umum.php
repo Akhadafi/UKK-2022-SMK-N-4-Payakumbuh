@@ -123,7 +123,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
     return mysqli_affected_rows($conn);
   }
 
-  if (isset($_POST["fasilitas_umum"])) {
+  if (isset($_POST["edit_fasilitas_umum"])) {
 
     if (editFasilitasUmum($_POST) > 0) {
       echo "<script>
@@ -158,7 +158,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
       </div>
 
       <!-- Tombol Edit -->
-      <button class="btn btn-warning" type="submit" name="fasilitas_umum">Edit</button>
+      <button class="btn btn-warning" type="submit" name="edit_fasilitas_umum">Edit</button>
 
     </form>
   </div>
@@ -166,44 +166,6 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>
-  <!-- Data Tabel -->
-  <script>
-    $(document).ready(function() {
-      $('#kamar').DataTable();
-    });
-  </script>
-
-</body>
-
-</html>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- CSS Bootstrap -->
-<link rel="stylesheet" href="../vendor/bootstrap.min.css">
-<!-- Data Tabel -->
-<link rel="stylesheet" href="../vendor/dataTables.bootstrap5.min.css">
-<script src="../vendor/jquery-3.5.1.js"></script>
-<script src="../vendor/jquery.dataTables.min.js"></script>
-<script src="../vendor//dataTables.bootstrap5.min.js"></script>
-<title>Kamar</title>
-</head>
-
-<body style="margin-top: 80px;">
-  <!-- Navbar -->
-  <?php
-  include './navbar.php'
-  ?>
-  <!-- Navbar -->
-
-
-  <!-- Bootstrap JS -->
-  <script src="../vendor/bootstrap.bundle.min.js"></script>
-  <!-- Data Tabel -->
-  <script>
-    $(document).ready(function() {
-      $('#kamar').DataTable();
-    });
-  </script>
 
 </body>
 

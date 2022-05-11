@@ -148,6 +148,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
         <input name="gambar" class="form-control" type="file" id="gambar">
       </div>
 
+      <!-- Tombol Tambah -->
       <button class="btn btn-success" type="submit" name="tambah_fasilitas_kamar">Tambah</button>
 
     </form>
@@ -156,12 +157,6 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>
-  <!-- Data Tabel -->
-  <script>
-    $(document).ready(function() {
-      $('#kamar').DataTable();
-    });
-  </script>
 
 </body>
 

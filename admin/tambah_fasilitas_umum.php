@@ -140,11 +140,8 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
         <input name="gambar" class="form-control" type="file" id="gambar">
       </div>
 
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button class="btn btn-success" type="submit" name="tambah_fasilitas_umum">Tambah</button>
-      </div>
+      <!-- Tombol Tambah -->
+      <button class="btn btn-success" type="submit" name="tambah_fasilitas_umum">Tambah</button>
 
     </form>
   </div>

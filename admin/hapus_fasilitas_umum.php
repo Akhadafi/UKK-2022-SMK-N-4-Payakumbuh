@@ -3,16 +3,16 @@
 // koneksi ke database
 $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
-$id_fasilitas_umum = $_GET["id_fasilitas_umum"];
+$id = $_GET["id"];
 
-function hapusFasilitasUmum($id_fasilitas_umum)
+function hapusFasilitasUmum($id)
 {
   global $conn;
-  mysqli_query($conn, "DELETE FROM fasilitas_umum WHERE id = '$id_fasilitas_umum'");
+  mysqli_query($conn, "DELETE FROM fasilitas_umum WHERE id = '$id'");
   return mysqli_affected_rows($conn);
 }
 
-if (hapusFasilitasUmum($id_fasilitas_umum) > 0) {
+if (hapusFasilitasUmum($id) > 0) {
   echo "
 		<script>
 			alert('data berhasil dihapus!');
