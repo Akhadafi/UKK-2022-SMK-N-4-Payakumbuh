@@ -90,14 +90,14 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
       return false;
     }
 
-    $result = mysqli_query($conn, "SELECT fasilitas FROM fasilitas_kamar WHERE fasilitas = '$fasilitas'");
+    // $result = mysqli_query($conn, "SELECT fasilitas FROM fasilitas_kamar WHERE fasilitas = '$fasilitas'");
 
-    if (mysqli_fetch_assoc($result)) {
-      echo "<script>
-            alert('Sudah terdaftar!')
-            </script>";
-      return false;
-    }
+    // if (mysqli_fetch_assoc($result)) {
+    //   echo "<script>
+    //         alert('Sudah terdaftar!')
+    //         </script>";
+    //   return false;
+    // }
 
 
     $queryTamabahFasilitasKamar = "INSERT INTO fasilitas_kamar
