@@ -23,7 +23,7 @@ $ResultDetailKamar = mysqli_fetch_assoc($DetailKamar);
   <script src="../vendor/jquery-3.5.1.js"></script>
   <script src="../vendor/jquery.dataTables.min.js"></script>
   <script src="../vendor//dataTables.bootstrap5.min.js"></script>
-  <title>Edit Kamar</title>
+  <title>Edit</title>
 </head>
 
 <body style="margin-top: 80px;">
@@ -33,7 +33,7 @@ $ResultDetailKamar = mysqli_fetch_assoc($DetailKamar);
   ?>
   <!-- Navbar -->
 
-  <!-- Edit Kamar -->
+  <!-- Edit -->
 
   <?php
   function editKamar($data)
@@ -87,7 +87,7 @@ $ResultDetailKamar = mysqli_fetch_assoc($DetailKamar);
 
     </form>
   </div>
-  <!-- Edit Kamar -->
+  <!-- Edit -->
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>

@@ -27,7 +27,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
   ?>
   <!-- Navbar -->
 
-  <!-- Tampil Kamar -->
+  <!-- Tampil -->
   <div class="card container">
     <div class="table-responsive p-2">
       <!-- Tombol Tambah -->
@@ -61,7 +61,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
       </table>
     </div>
   </div>
-  <!-- Tampil Kamar -->
+  <!-- Tampil -->
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>

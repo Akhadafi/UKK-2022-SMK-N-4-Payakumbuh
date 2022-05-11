@@ -17,7 +17,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
   <script src="../vendor/jquery-3.5.1.js"></script>
   <script src="../vendor/jquery.dataTables.min.js"></script>
   <script src="../vendor//dataTables.bootstrap5.min.js"></script>
-  <title>Tambah Kamar</title>
+  <title>Tambah</title>
 </head>
 
 <body style="margin-top: 80px;">
@@ -27,7 +27,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
   ?>
   <!-- Navbar -->
 
-  <!-- Tambah Kamar -->
+  <!-- Tambah -->
   <?php
   function tambahKamar($data)
   {
@@ -82,7 +82,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
     </form>
   </div>
-  <!-- Tambah Kamar -->
+  <!-- Tambah -->
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>

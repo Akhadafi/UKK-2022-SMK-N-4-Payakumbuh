@@ -23,7 +23,7 @@ $ResultDetailKamar = mysqli_fetch_assoc($DetailKamar);
   <script src="../vendor/jquery-3.5.1.js"></script>
   <script src="../vendor/jquery.dataTables.min.js"></script>
   <script src="../vendor//dataTables.bootstrap5.min.js"></script>
-  <title>Detail Kamar</title>
+  <title>Detail</title>
 </head>
 
 <body style="margin-top: 80px;">
@@ -33,23 +33,24 @@ $ResultDetailKamar = mysqli_fetch_assoc($DetailKamar);
   ?>
   <!-- Navbar -->
 
-  <!-- Detail Kamar -->
+  <!-- Detail -->
   <div class="container">
     <table class="table table-striped" style="width:100%">
       <tbody>
         <tr>
           <td>
-            <h4>Nama kamar: </h3>
-              <h5><?= $ResultDetailKamar['nama_kamar']; ?></h5>
+            <h4>Nama kamar: </h4>
+            <h5><?= $ResultDetailKamar['nama_kamar']; ?></h5>
           </td>
           <td>
-            <h4>Total kamar: </h3>
-              <h5><?= $ResultDetailKamar['total_kamar']; ?></h5>
-          <td>
+            <h4>Total kamar: </h4>
+            <h5><?= $ResultDetailKamar['total_kamar']; ?></h5>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
-  <!-- Detail Kamar -->
+  <!-- Detail -->
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>
