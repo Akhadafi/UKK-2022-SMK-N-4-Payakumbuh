@@ -109,7 +109,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
     return mysqli_affected_rows($conn);
   }
 
-  if (isset($_POST["tambah_fasilitas_kamar"])) {
+  if (isset($_POST["tambah_fasilitas_umum"])) {
 
     if (tambahFasilitasUmum($_POST) > 0) {
       echo "<script>
@@ -143,7 +143,7 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button class="btn btn-success" type="submit" name="tambah_fasilitas_kamar">Tambah</button>
+        <button class="btn btn-success" type="submit" name="tambah_fasilitas_umum">Tambah</button>
       </div>
 
     </form>
@@ -152,12 +152,6 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
   <!-- Bootstrap JS -->
   <script src="../vendor/bootstrap.bundle.min.js"></script>
-  <!-- Data Tabel -->
-  <script>
-    $(document).ready(function() {
-      $('#kamar').DataTable();
-    });
-  </script>
 
 </body>
 
