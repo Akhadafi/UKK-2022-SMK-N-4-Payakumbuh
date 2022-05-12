@@ -1,6 +1,21 @@
 <?php
+session_start();
+
 // koneksi ke database
 $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
+
+if (!isset($_SESSION["login"])) {
+  header("Location: ../index.php");
+  exit;
+}
+if ($_SESSION['role'] != "Admin") {
+  echo "
+            <script>
+                alert('Anda bukan admin!');
+                window.location.href = '../resepsionis/pelanggan.php';
+            </script>
+        ";
+}
 // ambil data di URL
 $id_fasilitas_umum = $_GET["id"];
 // query data berdasarkan id

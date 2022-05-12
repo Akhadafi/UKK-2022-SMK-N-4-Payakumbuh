@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" href="./pelanggan.php">Pelanggan</a>
-          <a href="logout.php" class="btn btn-outline-light">Logout</a>
+          <a href="../logout.php" class="btn btn-outline-light">Logout</a>
         </div>
       </div>
     </div>
