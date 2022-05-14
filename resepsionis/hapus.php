@@ -5,14 +5,14 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
 $id = $_GET["id"];
 
-function hapusPelanggan($id)
+function hapusKamar($id)
 {
   global $conn;
   mysqli_query($conn, "DELETE FROM pelanggan WHERE id = '$id'");
   return mysqli_affected_rows($conn);
 }
 
-if (hapusPelanggan($id) > 0) {
+if (hapusKamar($id) > 0) {
   echo "
 		<script>
 			alert('data berhasil dihapus!');

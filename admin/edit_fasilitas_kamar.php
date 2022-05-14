@@ -22,7 +22,6 @@ if ($_SESSION['role'] != "Admin") {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
   <?php
   // koneksi ke database
   $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
