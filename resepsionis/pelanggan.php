@@ -5,7 +5,7 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
 if (!isset($_SESSION["login"])) {
-  header("Location: ./pelanggan.php");
+  header("Location: ../index.php");
   exit;
 }
 if ($_SESSION['role'] != "Resepsionis") {
@@ -43,43 +43,48 @@ if ($_SESSION['role'] != "Resepsionis") {
   <!-- Navbar -->
 
   <!-- Tampil -->
-  <div class="container-fluid card-body">
-    <table id="pelanggan" class="table table-striped" style="width:100%">
-      <thead class="bg-dark text-light">
-        <tr>
-          <th>Status</th>
-          <th>Nama Tamu</th>
-          <th>Tanngal Pesan</th>
-          <th>Check In</th>
-          <th>Check Out</th>
-          <th>Kamar</th>
-          <th>Jumlah Kamar</th>
-          <th class="text-center">Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $resultPelanggan = mysqli_query($conn, "SELECT * FROM pelanggan,kamar WHERE pelanggan.id_kamar = kamar.id_kamar");
-        ?>
-        <?php while ($rowPelanggan = mysqli_fetch_assoc($resultPelanggan)) : ?>
-          <tr>
-            <td><span class="badge bg-warning"><?= $rowPelanggan['status']; ?></span></td>
-            <td><?= $rowPelanggan['nama_tamu']; ?></td>
-            <td><?= $rowPelanggan['tgl_pesan']; ?></td>
-            <td><?= $rowPelanggan['checkin']; ?></td>
-            <td><?= $rowPelanggan['checkout']; ?></td>
-            <td><?= $rowPelanggan['nama_kamar']; ?></td>
-            <td><?= $rowPelanggan['jml_kamar']; ?></td>
-            <td>
-              <a href="detail.php?id=<?= $rowPelanggan['id']; ?>" class="btn btn-outline-dark">Detail</a>
-              <a href="proses.php?id=<?= $rowPelanggan['id']; ?>" class="btn btn-outline-dark mx-1">Proses</a>
-              <a href="hapus.php?id=<?= $rowPelanggan['id']; ?>" class="btn btn-outline-dark">Hapus</a>
-            </td>
-          </tr>
-        <?php endwhile; ?>
-      </tbody>
-    </table>
+  <div class="container-fluid">
+    <div class="card">
+      <div class=" card-body">
+        <table id="pelanggan" class="table table-striped" style="width:100%">
+          <thead class="bg-dark text-light">
+            <tr>
+              <th>Status</th>
+              <th>Nama Tamu</th>
+              <th>Tanngal Pesan</th>
+              <th>Check In</th>
+              <th>Check Out</th>
+              <th>Kamar</th>
+              <th>Jumlah Kamar Dipesan</th>
+              <th class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $resultPelanggan = mysqli_query($conn, "SELECT * FROM pelanggan,kamar WHERE pelanggan.id_kamar = kamar.id_kamar");
+            ?>
+            <?php while ($rowPelanggan = mysqli_fetch_assoc($resultPelanggan)) : ?>
+              <tr>
+                <td><span class="badge bg-warning"><?= $rowPelanggan['status']; ?></span></td>
+                <td><?= $rowPelanggan['nama_tamu']; ?></td>
+                <td><?= $rowPelanggan['tgl_pesan']; ?></td>
+                <td><?= $rowPelanggan['checkin']; ?></td>
+                <td><?= $rowPelanggan['checkout']; ?></td>
+                <td><?= $rowPelanggan['nama_kamar']; ?></td>
+                <td><?= $rowPelanggan['jml_kamar']; ?></td>
+                <td>
+                  <a href="detail.php?id=<?= $rowPelanggan['id']; ?>" class="btn btn-outline-dark">Detail</a>
+                  <a href="proses.php?id=<?= $rowPelanggan['id']; ?>" class="btn btn-outline-dark mx-1">Proses</a>
+                  <a href="hapus.php?id=<?= $rowPelanggan['id']; ?>" class="btn btn-outline-dark">Hapus</a>
+                </td>
+              </tr>
+            <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+
   <!-- Tampil -->
 
   <!-- Bootstrap JS -->

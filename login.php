@@ -92,7 +92,7 @@ if (isset($_POST["login"])) {
   </style>
 </head>
 
-<body>
+<body style="background-image: url(./img/a.jpeg);">
   <div class="p-2 bg-secondary text-white text-center">
     <h1>HOTEL HEBAT</h1>
     <p>Selamat datang di Hotel Hebat Payakumbuh Indonesia!</p>
@@ -119,6 +119,18 @@ if (isset($_POST["login"])) {
           </div>
           <button type="submit" name="login" id="proses_login" class="btn btn-primary">Login</button>
         </form>
+        <div class="card mt-3">
+
+          <ul>
+            <li>LOGIN ADMIN</li>
+            <li>uesrname : admin</li>
+            <li>password : user</li>
+            <br>
+            <li>LOGIN RESEPSIONIS</li>
+            <li>uesrname : resepsionis</li>
+            <li>password : user</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

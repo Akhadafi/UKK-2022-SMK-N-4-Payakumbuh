@@ -1,13 +1,11 @@
 <?php
-// koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 session_start();
 
 // koneksi ke database
 $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
 
 if (!isset($_SESSION["login"])) {
-  header("Location: ./pelanggan.php");
+  header("Location: ../index.php");
   exit;
 }
 if ($_SESSION['role'] != "Resepsionis") {
