@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Bulan Mei 2022 pada 08.01
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 8.0.15
+-- Generation Time: May 27, 2022 at 06:02 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fasilitas_kamar`
+-- Table structure for table `fasilitas_kamar`
 --
 
 CREATE TABLE `fasilitas_kamar` (
@@ -35,7 +35,7 @@ CREATE TABLE `fasilitas_kamar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `fasilitas_kamar`
+-- Dumping data for table `fasilitas_kamar`
 --
 
 INSERT INTO `fasilitas_kamar` (`id`, `id_kamar`, `fasilitas`, `gambar`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `fasilitas_kamar` (`id`, `id_kamar`, `fasilitas`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fasilitas_umum`
+-- Table structure for table `fasilitas_umum`
 --
 
 CREATE TABLE `fasilitas_umum` (
@@ -61,7 +61,7 @@ CREATE TABLE `fasilitas_umum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `fasilitas_umum`
+-- Dumping data for table `fasilitas_umum`
 --
 
 INSERT INTO `fasilitas_umum` (`id`, `nama_fasilitas`, `keterangan`, `gambar`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `fasilitas_umum` (`id`, `nama_fasilitas`, `keterangan`, `gambar`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kamar`
+-- Table structure for table `kamar`
 --
 
 CREATE TABLE `kamar` (
@@ -82,7 +82,7 @@ CREATE TABLE `kamar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kamar`
+-- Dumping data for table `kamar`
 --
 
 INSERT INTO `kamar` (`id_kamar`, `nama_kamar`, `total_kamar`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `kamar` (`id_kamar`, `nama_kamar`, `total_kamar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelanggan`
+-- Table structure for table `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -110,17 +110,19 @@ CREATE TABLE `pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pelanggan`
+-- Dumping data for table `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`id`, `nama_pemesan`, `email`, `hp`, `nama_tamu`, `tgl_pesan`, `checkin`, `checkout`, `jml_kamar`, `status`, `id_kamar`) VALUES
-(14, 'aa', 'aa@gmail.com', '0800', 'aa', '2022-05-11 00:00:00', '2022-05-13', '2022-05-16', 2, 'Sedang Diproses', 1),
-(15, 'aa', 'budi@gmail.com', '0800', 'aa', '2022-05-11 00:00:00', '2022-05-20', '2022-05-22', 1, 'Sedang Diproses', 34);
+(24, 'dd', 'budi@gmail.com', '00000', 'vc', '0000-00-00 00:00:00', '2022-05-17', '2022-05-26', 1, 'Telah Diproses', 34),
+(25, 'asu', 'budi@gmail.com', '0800', 'nana', '0000-00-00 00:00:00', '2022-05-18', '2022-05-19', 1, 'Sedang Diproses', 1),
+(26, 'aaddd', 'budi@gmail.com', '0800', 'ww', '0000-00-00 00:00:00', '2022-05-18', '2022-05-20', 2, 'Sedang Diproses', 1),
+(27, 'Si Anu', 'aa@gmail.com', '0800', 'ww', '2022-05-17 02:34:54', '2022-05-18', '2022-05-20', 1, 'Sedang Diproses', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -134,89 +136,89 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`username`, `password`, `gambar`, `role`, `nama`, `no_hp`, `alamat`) VALUES
 ('admin', '$2y$10$HWFmRbo9r/vbGEZ3lav50eW6ZGcDkiGLy34qdkr7L5Y1rZEttTtPu', '6263ef68bf766.jpg', 'Admin', 'A Khadafi', '082200000000', 'padang sikabu'),
-('resepsionis', '$2y$10$3UvvXTt1xWt3cZYOpA8jVOqaQ/KdFJlH8KOG3C3G7x7Bf6jyOfyVe', '626624a565842.jpg', 'Resepsionis', 'resepsionis', '08', 'sikabu');
+('resepsionis', '$2y$10$3UvvXTt1xWt3cZYOpA8jVOqaQ/KdFJlH8KOG3C3G7x7Bf6jyOfyVe', '626624a565842.jpg', 'Resepsionis', 'Khadafi', '08', 'sikabu');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `fasilitas_kamar`
+-- Indexes for table `fasilitas_kamar`
 --
 ALTER TABLE `fasilitas_kamar`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_kamar` (`id_kamar`);
 
 --
--- Indeks untuk tabel `fasilitas_umum`
+-- Indexes for table `fasilitas_umum`
 --
 ALTER TABLE `fasilitas_umum`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kamar`
+-- Indexes for table `kamar`
 --
 ALTER TABLE `kamar`
   ADD PRIMARY KEY (`id_kamar`);
 
 --
--- Indeks untuk tabel `pelanggan`
+-- Indexes for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_kamar` (`id_kamar`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `fasilitas_kamar`
+-- AUTO_INCREMENT for table `fasilitas_kamar`
 --
 ALTER TABLE `fasilitas_kamar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `fasilitas_umum`
+-- AUTO_INCREMENT for table `fasilitas_umum`
 --
 ALTER TABLE `fasilitas_umum`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `kamar`
+-- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
   MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT untuk tabel `pelanggan`
+-- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `fasilitas_kamar`
+-- Constraints for table `fasilitas_kamar`
 --
 ALTER TABLE `fasilitas_kamar`
   ADD CONSTRAINT `fasilitas_kamar_ibfk_1` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pelanggan`
+-- Constraints for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD CONSTRAINT `pelanggan_ibfk_1` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`) ON DELETE CASCADE ON UPDATE CASCADE;

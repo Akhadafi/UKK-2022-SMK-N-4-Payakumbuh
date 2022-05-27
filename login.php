@@ -80,19 +80,10 @@ if (isset($_POST["login"])) {
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./vendor/bootstrap.min.css">
-  <title>Hello, world!</title>
-  <style>
-    .bg {
-      background-image: url(./img/a3.jpg);
-      /* background-color: darkgray; */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-  </style>
+  <title>Login</title>
 </head>
 
-<body style="background-image: url(./img/a.jpeg);">
+<body>
   <div class="p-2 bg-secondary text-white text-center">
     <h1>HOTEL HEBAT</h1>
     <p>Selamat datang di Hotel Hebat Payakumbuh Indonesia!</p>

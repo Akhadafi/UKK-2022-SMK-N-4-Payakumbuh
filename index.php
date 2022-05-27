@@ -33,44 +33,47 @@ $conn = mysqli_connect("localhost", "root", "", "hotel-hebat");
     </div>
 
     <div class="row mb-2">
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <?php
-          $result1 = mysqli_query($conn, "SELECT * FROM fasilitas_kamar,kamar WHERE fasilitas_kamar.id_kamar = kamar.id_kamar AND nama_kamar = 'Deluxe' LIMIT 1");
-          ?>
-          <?php $row1 = mysqli_fetch_assoc($result1) ?>
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">Tipe Kamar</strong>
-            <h3 class="mb-0"><?= $row1['nama_kamar']; ?></h3>
-            <div class="mb-1 text-muted">Total kamar: <?= $row1['total_kamar']; ?></div>
-            <p class="card-text mb-auto">Desain hotel yang mengagumkan dan standar layanan yang tak tertandingi di Bali dan Jakarta</p>
-            <a href="pesan.php" class="btn btn-outline-primary">Pesan Kamar</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img src="./img/fasilitas_kamar/<?= $row1['gambar']; ?>" alt="<?= $row1['nama_kamar']; ?>" width="200" height="250">
+      <?php
+      $resultFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar,kamar WHERE fasilitas_kamar.id_kamar = kamar.id_kamar AND nama_kamar = 'superior' LIMIT 2");
+      ?>
+      <?php while ($rowFasilitasKamar = mysqli_fetch_assoc($resultFasilitasKamar)) : ?>
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">Tipe Kamar</strong>
+              <h3 class="mb-0"><?= $rowFasilitasKamar['nama_kamar']; ?></h3>
+              <div class="mb-1 text-muted">Total kamar: <?= $rowFasilitasKamar['total_kamar']; ?></div>
+              <p class="card-text mb-auto">Desain hotel yang mengagumkan dan standar layanan yang tak tertandingi di Bali dan Jakarta</p>
+              <a href="pesan.php" class="btn btn-outline-primary">Pesan Kamar</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img src="./img/fasilitas_kamar/<?= $rowFasilitasKamar['gambar']; ?>" alt="<?= $rowFasilitasKamar['nama_kamar']; ?>" width="200" height="250">
+            </div>
           </div>
         </div>
-      </div>
+      <?php endwhile; ?>
 
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <?php
-          $result2 = mysqli_query($conn, "SELECT * FROM fasilitas_kamar,kamar WHERE fasilitas_kamar.id_kamar = kamar.id_kamar AND nama_kamar = 'Superior' LIMIT 1");
-          ?>
-          <?php $row2 = mysqli_fetch_assoc($result2) ?>
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success">Tipe Kamar</strong>
-            <h3 class="mb-0"><?= $row2['nama_kamar']; ?></h3>
-            <div class="mb-1 text-muted">Total kamar: <?= $row2['total_kamar']; ?></div>
-            <p class="mb-auto">Desain hotel yang mengagumkan dan standar layanan yang tak tertandingi di Bali dan Jakarta</p>
-            <a href="pesan.php" class="btn btn-outline-primary">Pesan Kamar</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img src="./img/fasilitas_kamar/<?= $row2['gambar']; ?>" alt="<?= $row2['nama_kamar']; ?>" width="200" height="250">
+      <?php
+      $resultFasilitasKamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar,kamar WHERE fasilitas_kamar.id_kamar = kamar.id_kamar AND nama_kamar = 'deluxe' LIMIT 2");
+      ?>
+      <?php while ($rowFasilitasKamar = mysqli_fetch_assoc($resultFasilitasKamar)) : ?>
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">Tipe Kamar</strong>
+              <h3 class="mb-0"><?= $rowFasilitasKamar['nama_kamar']; ?></h3>
+              <div class="mb-1 text-muted">Total kamar: <?= $rowFasilitasKamar['total_kamar']; ?></div>
+              <p class="card-text mb-auto">Desain hotel yang mengagumkan dan standar layanan yang tak tertandingi di Bali dan Jakarta</p>
+              <a href="pesan.php" class="btn btn-outline-primary">Pesan Kamar</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img src="./img/fasilitas_kamar/<?= $rowFasilitasKamar['gambar']; ?>" alt="<?= $rowFasilitasKamar['nama_kamar']; ?>" width="200" height="250">
+            </div>
           </div>
         </div>
-      </div>
+      <?php endwhile; ?>
     </div>
+
 
     <div class="row g-5">
       <div class="col-md-8">
